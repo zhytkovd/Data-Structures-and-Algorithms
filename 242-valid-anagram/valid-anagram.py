@@ -19,4 +19,4 @@ class Solution:
             else:
                 freq_count2[char1] = 1
         
-        return freq_count1.items() == freq_count2.items()
+        return freq_count1 == freq_count2

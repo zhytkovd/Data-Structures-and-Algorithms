@@ -4,12 +4,13 @@ class Solution:
         d = {}
 
         for i in range(len(strs)):
-            l = [0 for i in range(26)]
+            l = [0] * 26
 
             for s in range(len(strs[i])):
-                l[97 - int(ord(strs[i][s]))] += 1
+                l[97 - ord(strs[i][s]) ] += 1
             
             t = tuple(l)
+
             if t in d: 
                 d[t].append(strs[i])
             else:

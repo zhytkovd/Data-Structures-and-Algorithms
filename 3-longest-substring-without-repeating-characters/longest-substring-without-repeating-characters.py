@@ -7,9 +7,9 @@ class Solution:
 
             if s[r] not in window:
                 window.add(s[r])
-             
                 r += 1
-                count = max(count,len(window)) 
+                if count < len(window):
+                    count = max(count,len(window)) 
             else:
                 # if they are equal, we adjust left pointer and continue
                 if s[l] == s[r]:

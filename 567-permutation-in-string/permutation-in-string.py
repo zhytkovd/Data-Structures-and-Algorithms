@@ -22,14 +22,9 @@ class Solution:
         while r < len(s2)-1:
             l+=1
             r+=1
-            if s2[l-1] != s2[r]: 
-                d2[s2[l-1]] -= 1
-                d2[s2[r]] += 1
+        
+            d2[s2[l-1]] -= 1
+            d2[s2[r]] += 1
             if d1 == d2: return True
 
         return False
-            
-            
-            
-        
-        

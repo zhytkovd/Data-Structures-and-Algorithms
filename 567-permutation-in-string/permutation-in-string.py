@@ -15,7 +15,7 @@ class Solution:
 
         for i in range(0,r+1):
             d2[s2[i]] += 1
-        print(d2)
+
 
         if d1 == d2: return True
 
@@ -25,7 +25,6 @@ class Solution:
             if s2[l-1] != s2[r]: 
                 d2[s2[l-1]] -= 1
                 d2[s2[r]] += 1
-            print(d2)
             if d1 == d2: return True
 
         return False

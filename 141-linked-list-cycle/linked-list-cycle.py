@@ -10,10 +10,8 @@ class Solution:
         curr, nxt = head, head
 
         count = 0
-        while (curr != None) and (nxt != None):
-            if nxt.next == None or curr == None: return False
-            
-            if not nxt.next.next:
+        while curr and nxt:
+            if not curr or not nxt.next or not nxt.next.next:
                 return False
             else:
                 nxt = nxt.next.next

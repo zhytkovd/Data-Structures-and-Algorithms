@@ -7,14 +7,23 @@
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         node_set = {}
+        curr, nxt = head, head
 
-        curr = head
         count = 0
-        while curr:
-            if curr in node_set:
-                return True
+        while (curr != None) and (nxt != None):
+            if nxt.next == None or curr == None: return False
+            
+
+            if not nxt.next.next:
+                return False
             else:
-                node_set[curr] = 0
+                nxt = nxt.next.next
+
             curr = curr.next
+
+            print(curr.val, nxt.val)
+            if curr == nxt: return True
+
+
         return False
         

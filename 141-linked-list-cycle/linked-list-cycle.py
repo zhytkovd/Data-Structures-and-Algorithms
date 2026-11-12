@@ -13,15 +13,12 @@ class Solution:
         while (curr != None) and (nxt != None):
             if nxt.next == None or curr == None: return False
             
-
             if not nxt.next.next:
                 return False
             else:
                 nxt = nxt.next.next
 
             curr = curr.next
-
-            print(curr.val, nxt.val)
             if curr == nxt: return True
 
 

@@ -11,12 +11,8 @@ class Solution:
         m = inorder.index(preorder[0]) # index - first element is always a root
 
         root = TreeNode(preorder[0])
-        # l_inorder = inorder[0:m]
-        # l_preorder = preorder[1:len(l_inorder)+1]
-        root.left = self.buildTree(preorder[1:len(inorder[0:m])+1],inorder[0:m])
-        # r_inorder = inorder[m+1:]
-        # r_preorder = preorder[1+len(inorder[0:m]):]
-        root.right = self.buildTree(preorder[1+len(inorder[0:m]):],inorder[m+1:])
+        root.left = self.buildTree(preorder[1:m+1],inorder[:m])
+        root.right = self.buildTree(preorder[m+1:],inorder[m+1:])
 
         return root
 

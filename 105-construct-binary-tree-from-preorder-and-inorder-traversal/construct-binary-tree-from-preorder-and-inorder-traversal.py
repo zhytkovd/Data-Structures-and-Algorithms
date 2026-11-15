@@ -7,16 +7,16 @@
 class Solution:
     def buildTree(self, preorder: list[int], inorder: list[int]) -> TreeNode | None:
         if not preorder or not inorder: return None
+        
+        m = inorder.index(preorder[0]) # index - first element is always a root
 
-        root_val = preorder[0] # first element is always a root
+        root = TreeNode(preorder[0])
+        # l_inorder = inorder[0:m]
+        # l_preorder = preorder[1:len(l_inorder)+1]
+        root.left = self.buildTree(preorder[1:len(inorder[0:m])+1],inorder[0:m])
+        # r_inorder = inorder[m+1:]
+        # r_preorder = preorder[1+len(inorder[0:m]):]
+        root.right = self.buildTree(preorder[1+len(inorder[0:m]):],inorder[m+1:])
 
-        m = inorder.index(root_val)
-        # pass values to the left
-        l_inorder = inorder[0:m]
-        l_preorder = preorder[1:len(l_inorder)+1]
-        # pass values to the right
-        r_inorder = inorder[m+1:]
-        r_preorder = preorder[1+len(l_preorder):]
-
-        return TreeNode(preorder[0],self.buildTree( l_preorder,l_inorder), self.buildTree(r_preorder,r_inorder))
+        return root
 
